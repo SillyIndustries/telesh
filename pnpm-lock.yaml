@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@mtcute/core':
+        specifier: 0.18.0-rc.5
+        version: 0.18.0-rc.5
       '@mtcute/crypto-node':
         specifier: 0.18.0-rc.5
         version: 0.18.0-rc.5
@@ -20,6 +23,9 @@ importers:
       dotenv-cli:
         specifier: ^8.0.0
         version: 8.0.0
+      sh:
+        specifier: github:LitterbinCollective/sh
+        version: https://codeload.github.com/LitterbinCollective/sh/tar.gz/e89cbcbfffd251c5bd0fb9caa00d86754afba8f6
     devDependencies:
       '@types/node':
         specifier: ^22.10.2
@@ -188,6 +194,10 @@ packages:
 
   '@fuman/utils@0.0.3':
     resolution: {integrity: sha512-EhWPFvVHqFSWVi9VMTutvUQ/btDVIz0dKJV90oOPzl4wMCB0WDrIYlGnt698tqbxWHLUCEos1FomSe1McVklyQ==}
+
+  '@msgpack/msgpack@2.8.0':
+    resolution: {integrity: sha512-h9u4u/jiIRKbq25PM+zymTyW6bhTzELvOoUd+AvYriWOAKpLGnIamaET3pnHYoI5iYphAHBI4ayx0MehR+VVPQ==}
+    engines: {node: '>= 10'}
 
   '@mtcute/core@0.18.0-rc.5':
     resolution: {integrity: sha512-gMDWUpjTNEgDXe745aIans4lGPsVE4PseLTbI2KRadIyl6xDTDMAcDxAOGCqDx3Uk++OvRPmMBVJu8oRrZP6YA==}
@@ -393,6 +403,10 @@ packages:
     engines: {node: '>=10'}
     hasBin: true
 
+  sh@https://codeload.github.com/LitterbinCollective/sh/tar.gz/e89cbcbfffd251c5bd0fb9caa00d86754afba8f6:
+    resolution: {tarball: https://codeload.github.com/LitterbinCollective/sh/tar.gz/e89cbcbfffd251c5bd0fb9caa00d86754afba8f6}
+    version: 1.0.0
+
   shebang-command@2.0.0:
     resolution: {integrity: sha512-kHxr2zZpYtdmrN1qDjrrX/Z1rR1kG8Dx+gkpK1G4eXmvXswmcE1hTWBWYUzlraYw1/yZp6YuDY77YtvbN0dmDA==}
     engines: {node: '>=8'}
@@ -538,6 +552,8 @@ snapshots:
       '@fuman/utils': 0.0.3
 
   '@fuman/utils@0.0.3': {}
+
+  '@msgpack/msgpack@2.8.0': {}
 
   '@mtcute/core@0.18.0-rc.5':
     dependencies:
@@ -799,6 +815,10 @@ snapshots:
   safe-buffer@5.2.1: {}
 
   semver@7.6.3: {}
+
+  sh@https://codeload.github.com/LitterbinCollective/sh/tar.gz/e89cbcbfffd251c5bd0fb9caa00d86754afba8f6:
+    dependencies:
+      '@msgpack/msgpack': 2.8.0
 
   shebang-command@2.0.0:
     dependencies:

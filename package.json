@@ -1,22 +1,23 @@
 {
-    "name": "telesh",
-    "license": "MIT",
-    "version": "0.0.1",
-    "type": "module",
-    "packageManager": "pnpm@9.12.3",
-    "scripts": {
-        "start": "dotenv tsx ./src/main.ts",
-        "build": "tsc"
-    },
-    "dependencies": {
-        "@mtcute/crypto-node": "0.18.0-rc.5",
-        "@mtcute/dispatcher": "0.18.0-rc.5",
-        "@mtcute/node": "0.18.0-rc.5",
-        "dotenv-cli": "^8.0.0"
-    },
-    "devDependencies": {
-        "@types/node": "^22.10.2",
-        "tsx": "^4.19.2",
-        "typescript": "^5.7.2"
-    }
+  "name": "telesh",
+  "license": "MIT",
+  "version": "0.0.1",
+  "type": "module",
+  "packageManager": "pnpm@9.12.3",
+  "scripts": {
+    "start": "tsx ./src/main.ts",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@mtcute/core": "0.18.0-rc.5",
+    "@mtcute/crypto-node": "0.18.0-rc.5",
+    "@mtcute/dispatcher": "0.18.0-rc.5",
+    "@mtcute/node": "0.18.0-rc.5",
+    "sh": "github:LitterbinCollective/sh"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
 }

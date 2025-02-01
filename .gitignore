@@ -6,4 +6,5 @@ dist/
 .vscode
 *.log
 *.tsbuildinfo
-.env
+cache/
+config.json
