@@ -3,7 +3,7 @@
   "api_id": "",
   "api_hash": "",
   "port": 8080,
-  "host": "https://jm-treatment-lender-obviously.trycloudflare.com",
+  "host": "https://jm-treatment-lender-obviously.trycloudflare.com", // should NOT end with a slash!
 
   "github_token": "",
 
