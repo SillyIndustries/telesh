@@ -1,14 +1,15 @@
 # telesh
 
-mtcute powered Telegram bot
+mtcute powered Telegram bot intended for generating Chatsounds
+voice messages on the fly.
 
 ## Development
 
 ```bash
-pnpm install --frozen-lockfile
-cp .env.example .env 
+npm i
+cp config.example.json config.json
 # edit .env
-pnpm start
+npm run start
 ```
 
 *generated with @mtcute/create-bot*

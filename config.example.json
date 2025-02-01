@@ -1,0 +1,42 @@
+{
+  "bot_token": "",
+  "api_id": "",
+  "api_hash": "",
+  "port": 8080,
+  "host": "https://jm-treatment-lender-obviously.trycloudflare.com",
+
+  "github_token": "",
+
+  "sources": {
+    "PAC3-Server/chatsounds-valve-games#master": {
+      "bases": [
+        "csgo",
+        "css",
+        "ep1",
+        "ep2",
+        "hl1",
+        "hl2",
+        "l4d",
+        "l4d2",
+        "portal",
+        "tf2"
+      ],
+      "useMsgPack": true
+    },
+
+    "Metastruct/garrysmod-chatsounds#master": {
+      "bases": ["sound/chatsounds/autoadd"],
+      "useMsgPack": false
+    },
+
+    "PAC3-Server/chatsounds#master": {
+      "bases": ["sounds/chatsounds"],
+      "useMsgPack": false
+    },
+
+    "LitterbinCollective/foxtrot-chatsounds#main": {
+      "bases": ["sounds"],
+      "useMsgPack": false
+    }
+  }
+}
