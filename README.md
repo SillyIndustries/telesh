@@ -8,8 +8,6 @@ voice messages on the fly.
 ```bash
 npm i
 cp config.example.json config.json
-# edit .env
+# edit config.json
 npm run start
 ```
-
-*generated with @mtcute/create-bot*
