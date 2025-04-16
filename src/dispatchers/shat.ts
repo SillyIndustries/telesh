@@ -1,6 +1,6 @@
-import { Dispatcher } from '@mtcute/dispatcher';
+import { Dispatcher, filters } from '@mtcute/dispatcher';
 
-import { onInlineQuery } from '../handler/index.js';
+import { onInlineQuery, onNewMessage } from '../handler/index.js';
 
 export const shatDp = Dispatcher.child();
 
@@ -10,3 +10,7 @@ shatDp.onError((error) => {
 });
 
 shatDp.onInlineQuery(onInlineQuery);
+shatDp.onNewMessage(
+  filters.and(filters.text, filters.not(filters.command('start'))),
+  onNewMessage
+);

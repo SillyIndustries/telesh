@@ -1,5 +1,5 @@
 import { createHash } from 'crypto';
-import { InlineQueryContext } from '@mtcute/dispatcher';
+import { filters, InlineQueryContext, MessageContext } from '@mtcute/dispatcher';
 import { BotInline } from '@mtcute/core';
 
 import sh from './shat.js';
@@ -27,14 +27,18 @@ async function wait(id: number) {
   );
 }
 
+class Skip extends Error {}
+
 export async function onInlineQuery(ctx: InlineQueryContext) {
+  const input = ctx.query.replaceAll('—', '--');
+
   try {
     if (!(await wait(ctx.user.id)))
-      throw new Error();
+      throw new Skip;
 
-    const identifier = 'shat_' + createHash('sha1').end(ctx.query).digest('hex');
+    const identifier = 'shat_' + createHash('sha1').end(input).digest('hex');
 
-    const chatsounds = sh.new(ctx.query);
+    const chatsounds = sh.new(input);
     const buffer = await chatsounds.buffer({
       format: 'ogg',
       codec: 'libopus',
@@ -43,7 +47,7 @@ export async function onInlineQuery(ctx: InlineQueryContext) {
     });
 
     if (!buffer)
-      throw new Error();
+      throw new Skip;
 
     const file = await ctx.client.uploadMedia({
       file: buffer,
@@ -55,16 +59,45 @@ export async function onInlineQuery(ctx: InlineQueryContext) {
         identifier,
         file.fileId,
         {
-          title: ctx.query,
+          title: input,
           message: {
             type: 'media',
-            text: ctx.query
+            text: input
           }
         }
       )
     ], { cacheTime: 300 });
   } catch (err) {
-    console.log(err);
+    if (!(err instanceof Skip))
+      console.log(err);
     return await ctx.answer([]);
   }
+}
+
+type TextMessage = filters.Modify<MessageContext, {
+  media: null;
+  isService: false;
+}>
+
+export async function onNewMessage(msg: TextMessage) {
+  const input = msg.text.replaceAll('—', '--');
+
+  const chatsounds = sh.new(input);
+  const buffer = await chatsounds.buffer({
+    format: 'ogg',
+    codec: 'libopus',
+    audioChannels: 2,
+    sampleRate: 48000
+  });
+
+  if (!buffer) {
+    await msg.replyText('no output could be generated for this input...');
+    return;
+  }
+
+  await msg.replyMedia({
+    file: buffer,
+    type: 'voice',
+    caption: input,
+  });
 }
